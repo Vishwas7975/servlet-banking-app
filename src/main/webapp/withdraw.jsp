@@ -16,7 +16,6 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        animation: fadeIn 1s ease-in-out;
     }
 
     .card {
@@ -24,8 +23,8 @@
         padding: 35px 45px;
         border-radius: 14px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        width: 380px;
-        animation: slideUp 1s ease;
+        width: 400px;
+        animation: slideUp 0.8s ease;
     }
 
     h2 {
@@ -44,7 +43,6 @@
         margin-bottom: 15px;
         padding: 10px;
         border-radius: 8px;
-        animation: popIn 0.6s ease;
     }
 
     .success { background: #d4edda; color: #155724; border-left: 5px solid #28a745; }
@@ -58,39 +56,43 @@
         color: #333;
     }
 
-    /* Input Wrapper */
+    /* FIXED INPUT + ICON WRAPPER */
     .input-group {
-        position: relative;
         margin-bottom: 20px;
     }
 
-    /* Icons */
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
     .input-icon {
         position: absolute;
-        left: 10px;
-        top: 36px;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
         width: 20px;
         height: 20px;
         stroke: #666;
+        pointer-events: none;
     }
 
-    input[type="text"],
-    input[type="number"] {
+    .input-field {
         width: 100%;
-        padding: 12px 12px 12px 40px;
+        padding: 12px 12px 12px 45px;
         border: 1px solid #ccc;
         border-radius: 8px;
         font-size: 16px;
-        transition: 0.3s;
+        box-sizing: border-box;
         outline: none;
     }
 
-    input:focus {
+    .input-field:focus {
         border-color: #d32f2f;
-        box-shadow: 0 0 6px rgba(211, 47, 47, 0.4);
+        box-shadow: 0 0 6px rgba(211,47,47,0.4);
     }
 
-    /* Submit Button */
+    /* Button */
     input[type="submit"] {
         width: 100%;
         background-color: #d32f2f;
@@ -111,7 +113,6 @@
         box-shadow: 0 6px 16px rgba(183,28,28,0.45);
     }
 
-    /* Back Link */
     .back-link {
         text-align: center;
         margin-top: 15px;
@@ -132,21 +133,9 @@
         transform: translateX(-3px);
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
     @keyframes slideUp {
         from { transform: translateY(40px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes popIn {
-        0% { transform: scale(0.4); opacity: 0; }
-        80% { transform: scale(1.08); opacity: 1; }
-        100% { transform: scale(1); }
+        to   { transform: translateY(0); opacity: 1; }
     }
 </style>
 </head>
@@ -168,22 +157,32 @@
 
 <form action="withdraw" method="post">
 
+    <!-- Account Number -->
     <div class="input-group">
         <label>Account Number:</label>
-        <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M3 10l9-6 9 6"></path>
-            <path d="M4 10h16v8H4z"></path>
-        </svg>
-        <input type="text" name="accountNumber" required>
+
+        <div class="input-wrapper">
+            <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M3 10l9-6 9 6"></path>
+                <path d="M4 10h16v8H4z"></path>
+            </svg>
+
+            <input type="text" name="accountNumber" required class="input-field">
+        </div>
     </div>
 
+    <!-- Amount -->
     <div class="input-group">
         <label>Amount:</label>
-        <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M12 1L12 23"></path>
-            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
-        </svg>
-        <input type="number" step="0.01" name="amount" required>
+
+        <div class="input-wrapper">
+            <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 1L12 23"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+            </svg>
+
+            <input type="number" name="amount" required class="input-field">
+        </div>
     </div>
 
     <input type="submit" value="Withdraw">

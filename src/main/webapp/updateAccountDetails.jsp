@@ -11,8 +11,10 @@
         background: linear-gradient(to bottom right, #dfe7f2, #b9c7d6);
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 160vh;
+        align-items: flex-start;
+        min-height: 100vh;
+        height: auto;
+        padding: 40px 0;
         margin: 0;
         animation: fadeIn 1s ease-in-out;
     }
@@ -23,6 +25,7 @@
         border-radius: 14px;
         box-shadow: 0px 8px 25px rgba(0,0,0,0.18);
         width: 420px;
+        max-width: 90%;
         animation: slideUp 1s ease;
     }
 
@@ -34,7 +37,6 @@
         font-weight: 600;
     }
 
-    /* Labels */
     label {
         font-weight: 600;
         margin-bottom: 6px;
@@ -42,34 +44,32 @@
         color: #333;
     }
 
-    /* Input Wrapper (icon + field) */
     .input-group {
         position: relative;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
 
-    /* Icons */
     .input-icon {
         position: absolute;
-        left: 10px;
+        left: 12px;
         top: 50%;
         transform: translateY(-50%);
         width: 20px;
         height: 20px;
         stroke: #666;
+        pointer-events: none;
     }
 
-    /* Inputs */
     input[type="text"],
     input[type="number"],
     input[type="email"],
     input[type="password"] {
         width: 100%;
-        padding: 12px 12px 12px 40px;
+        padding: 12px 12px 12px 42px;
         border: 1px solid #ccc;
         border-radius: 8px;
         outline: none;
-        font-size: 14px;
+        font-size: 15px;
         transition: 0.3s;
         box-sizing: border-box;
     }
@@ -79,17 +79,16 @@
         box-shadow: 0 0 6px rgba(30, 136, 229, 0.4);
     }
 
-    /* Submit Button */
     .btn-submit {
         background: #1e88e5;
         color: white;
         font-weight: bold;
         border: none;
-        padding: 12px 15px;
+        padding: 14px 15px;
         border-radius: 8px;
         width: 100%;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 17px;
         margin-top: 10px;
         transition: 0.3s;
         box-shadow: 0 4px 10px rgba(30, 136, 229, 0.4);
@@ -101,7 +100,6 @@
         box-shadow: 0 6px 14px rgba(21, 101, 192, 0.45);
     }
 
-    /* Message */
     .message {
         text-align: center;
         font-weight: bold;
@@ -110,7 +108,6 @@
         color: green;
     }
 
-    /* Back Link */
     .back-link {
         text-align: center;
         margin-top: 15px;
@@ -128,11 +125,10 @@
     }
 
     .back-link a:hover {
-        text-decoration: underline;
+        opacity: 0.8;
         transform: translateX(-3px);
     }
 
-    /* Animation */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -142,6 +138,7 @@
         from { opacity: 0; transform: translateY(40px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
 </style>
 </head>
 

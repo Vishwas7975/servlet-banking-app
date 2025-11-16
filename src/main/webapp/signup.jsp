@@ -8,100 +8,88 @@
 <style>
     body {
         font-family: "Segoe UI", Arial, sans-serif;
-        background: linear-gradient(to bottom right, #dfe7f2, #b9c7d6);
+        background: linear-gradient(to bottom right,#e6eef7,#cdd9e6);
         margin: 0;
         padding: 40px 0;
-        text-align: center;
-        animation: fadeIn 1s ease;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-card {
+        width: 100%;
+        max-width: 500px;
+        background: white;
+        padding: 35px 40px;
+        border-radius: 16px;
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
     }
 
     h2 {
-        font-size: 32px;
+        text-align: center;
+        font-size: 28px;
         font-weight: bold;
-        color: #1a2b3c;
-        animation: slideDown 0.8s ease;
+        color: #0077cc;
+        margin-bottom: 30px;
     }
 
-    .form-container {
-        background: #ffffff;
-        display: inline-block;
-        padding: 35px 45px;
-        border-radius: 14px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        margin-top: 20px;
-        text-align: left;
-        width: 420px;
-        animation: slideUp 1s ease;
-    }
-
-    form p {
-        display: flex;
-        align-items: center;
-        margin: 18px 0;
-        position: relative;
+    .input-group {
+        margin-bottom: 20px;
     }
 
     label {
-        flex: 1;
-        font-weight: bold;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
         color: #333;
     }
 
-    /* Input Icons */
-    .input-icon {
-        position: absolute;
-        left: 10px;
-        width: 20px;
-        height: 20px;
-        stroke: #666;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
     input {
-        flex: 2;
-        padding: 10px 12px 10px 38px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 14px;
-        transition: 0.3s;
+        width: 100%;
+        height: 50px;
+        padding: 12px 15px;
+        border: 1px solid #d6d6d6;
+        border-radius: 10px;
+        background: #ffffff;
+        font-size: 15px;
+        box-sizing: border-box;
+        transition: 0.25s ease;
     }
 
     input:focus {
         outline: none;
         border-color: #1e88e5;
-        box-shadow: 0 0 6px rgba(30, 136, 229, 0.4);
+        box-shadow: 0px 0px 6px rgba(30,136,229,0.35);
     }
 
     .btn {
-        background-color: #1e88e5;
+        width: 100%;
+        background: #1e88e5;
         color: white;
-        padding: 12px 20px;
+        padding: 14px 20px;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
+        font-size: 17px;
         font-weight: bold;
         cursor: pointer;
-        width: 100%;
-        font-size: 16px;
         margin-top: 10px;
         transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(30, 136, 229, 0.4);
     }
 
     .btn:hover {
-        background-color: #1565c0;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 14px rgba(21, 101, 192, 0.45);
+        background: #1565c0;
+        transform: translateY(-2px);
     }
 
     .login-link {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 18px;
+        color: #333;
         font-size: 15px;
     }
 
     .login-link a {
-        color: #1e88e5;
+        color: #0066bb;
         font-weight: bold;
         text-decoration: none;
     }
@@ -109,131 +97,84 @@
     .login-link a:hover {
         text-decoration: underline;
     }
-
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-        from { transform: translateY(60px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes slideDown {
-        from { transform: translateY(-40px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
 </style>
 </head>
 <body>
 
+<div class="form-card">
+
 <h2>Create Account</h2>
 
-<div class="form-container">
-  <form action="CreateAccount" method="post">
+<form action="CreateAccount" method="post">
 
-    <p>
-      <label for="accountNumber">Account Number:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M3 10l9-6 9 6"></path>
-        <path d="M4 10h16v8H4z"></path>
-      </svg>
-      <input type="text" id="accountNumber" name="accountNumber" required>
-    </p>
+    <!-- ACCOUNT NUMBER -->
+    <div class="input-group">
+        <label>Account Number</label>
+        <input type="text" name="accountNumber" required>
+    </div>
 
-    <p>
-      <label for="accountHolderName">Name:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="12" cy="7" r="4"></circle>
-        <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
-      </svg>
-      <input type="text" id="accountHolderName" name="accountHolderName" required>
-    </p>
+    <!-- HOLDER NAME -->
+    <div class="input-group">
+        <label>Holder Name</label>
+        <input type="text" name="accountHolderName" required>
+    </div>
 
-    <p>
-      <label for="balance">Initial Balance:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M12 1L12 23"></path>
-        <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
-      </svg>
-      <input type="number" id="balance" name="balance" required>
-    </p>
+    <!-- BALANCE -->
+    <div class="input-group">
+        <label>Balance</label>
+        <input type="number" name="balance" required>
+    </div>
 
-    <p>
-      <label for="accountType">Account Type:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <rect x="3" y="4" width="18" height="14" rx="2"></rect>
-        <path d="M3 10h18"></path>
-      </svg>
-      <input type="text" id="accountType" name="accountType" required>
-    </p>
+    <!-- ACCOUNT TYPE -->
+    <div class="input-group">
+        <label>Account Type</label>
+        <input type="text" name="accountType" required>
+    </div>
 
-    <p>
-      <label for="ifscCode">IFSC:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z"></path>
-        <path d="M4 9h16"></path>
-        <path d="M9 4v16"></path>
-      </svg>
-      <input type="text" id="ifscCode" name="ifscCode" required>
-    </p>
+    <!-- IFSC -->
+    <div class="input-group">
+        <label>IFSC Code</label>
+        <input type="text" name="ifscCode" required>
+    </div>
 
-    <p>
-      <label for="branchName">Branch:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"></path>
-        <circle cx="12" cy="9" r="2.5"></circle>
-      </svg>
-      <input type="text" id="branchName" name="branchName">
-    </p>
+    <!-- BRANCH -->
+    <div class="input-group">
+        <label>Branch</label>
+        <input type="text" name="branchName">
+    </div>
 
-    <p>
-      <label for="address">Address:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z"></path>
-        <path d="M4 9h16"></path>
-      </svg>
-      <input type="text" id="address" name="address">
-    </p>
+    <!-- ADDRESS -->
+    <div class="input-group">
+        <label>Address</label>
+        <input type="text" name="address">
+    </div>
 
-    <p>
-      <label for="phone">Phone:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72 12.05 12.05 0 006.06 9.06A2 2 0 0117 16.92z"></path>
-      </svg>
-      <input type="text" id="phone" name="phone">
-    </p>
+    <!-- PHONE -->
+    <div class="input-group">
+        <label>Phone</label>
+        <input type="text" name="phone">
+    </div>
 
-    <p>
-      <label for="email">Email:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z"></path>
-        <path d="M22 6l-10 7L2 6"></path>
-      </svg>
-      <input type="email" id="email" name="email">
-    </p>
+    <!-- EMAIL -->
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email">
+    </div>
 
-    <p>
-      <label for="pin">PIN:</label>
-      <svg class="input-icon" fill="none" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M12 17a2 2 0 100-4 2 2 0 000 4z"></path>
-        <path d="M6 10V7a6 6 0 0112 0v3"></path>
-        <rect x="6" y="10" width="12" height="10" rx="2"></rect>
-      </svg>
-      <input type="password" id="pin" name="pin" required>
-    </p>
+    <!-- PIN -->
+    <div class="input-group">
+        <label>PIN</label>
+        <input type="password" name="pin" required>
+    </div>
 
-    <p style="text-align:center;">
-      <input type="submit" value="Create Account" class="btn">
-    </p>
+    <button type="submit" class="btn">Create Account</button>
 
-  </form>
+</form>
 
-  <p class="login-link">
+<p class="login-link">
     Already have an account? <a href="login.jsp">Login</a>
-  </p>
+</p>
+
 </div>
 
 </body>

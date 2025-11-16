@@ -13,8 +13,10 @@
         background: linear-gradient(to bottom right, #dfe7f2, #b9c7d6);
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
+        align-items: flex-start;
+        min-height: 100vh;     /* FIXED */
+        height: auto;          /* FIXED */
+        padding: 40px 0;       /* FIXED */
         margin: 0;
         animation: fadeIn 1s ease;
     }
@@ -24,13 +26,14 @@
         padding: 35px 45px;
         border-radius: 16px;
         width: 380px;
+        max-width: 90%;
         text-align: center;
         box-shadow: 0px 12px 35px rgba(0,0,0,0.18);
         animation: slideUp 1s ease;
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 26px;
         margin-bottom: 25px;
         color: #1e88e5;
         font-weight: 600;
@@ -84,6 +87,28 @@
         width: 22px;
         height: 22px;
         stroke: white;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 480px) {
+        .dashboard-container {
+            width: 90%;
+            padding: 25px 30px;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+
+        .menu-item {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     /* Animations */
